@@ -1,0 +1,171 @@
+#Author: Rohan Sinha
+#Date: 9/12/2021
+#Email: sinharohan.work@gmail.com
+#Last modified by: Rohan Sinha
+#Last modify time: 2021-12-9 19:41:40
+#Program aims to solve the first 10 questions on "Simple Programming Problems"
+#Link: https://adriann.github.io/programming_problems.html
+
+def Problem_1():
+  print("1.) Hello World")
+
+
+def Problem_2(name):
+  print("2.) Hello!", name)
+
+
+def Problem_3(name):
+  if name.lower() == 'alice' or name.lower() == 'bob':
+    print("3.) Hi, ", name, " !")
+  else:
+    print("3.) Invalid User !")
+
+
+def Problem_4(num1):
+  try: 
+    num_sum = 0
+    for i in range(1, num1+1):
+          num_sum += i
+    
+  except ValueError:
+      print("4.) Invalid number")
+  else:
+    print("4.) Sum = ", num_sum)
+
+
+def Problem_5(num1):
+  try:
+    multiple_sum = 0
+    for i in range(1, num1+1):
+      if i % 3 == 0 or i % 5 == 0:
+        multiple_sum += i
+  except ValueError:
+    print("5.) Invalid number ")
+  else:
+    print("5.) Sum of only multiples of 3 and 5 = ", multiple_sum)
+
+
+def Problem_6(num2, choice):
+  num_sum = 0
+  product = 1
+  try:
+    for i in range(1, num2+1):
+      if choice.lower() == 's':
+        num_sum += i
+      elif choice.lower() == 'p':
+        product *= i
+  except ValueError:
+    print("6.) Invalid number")
+  else:
+    if choice.lower() == 's':
+      print("6.) Sum = ", num_sum)
+    elif choice.lower() == 'p':
+      print("Product = ", product)
+
+
+def Problem_7(num3):
+  try:
+    print("7.)")
+    if num3 <= 12:
+      for i in range(1, 11):
+        print("{:2d} * {:2d} = {:02d}".format(num3, i, num3 * i))
+    else:
+      print("Number is greater than 12")
+  except ValueError:
+    print("Enter a valid number")
+
+def Problem_8(upto):
+  try:
+    print("8.) Prime numbers are: ")
+    for n in range(2, upto):
+      flag = 1
+      limit = n // 2
+      for i in range(2, limit):
+        if n % i == 0:
+          flag = 0
+          break
+      if flag == 1:
+        print(n)
+  except ValueError:
+    print("Enter a valid number")
+
+
+def Problem_9():
+  from random import randint
+
+  lists = []
+  guess = 0
+  guess_num = 0
+  number = randint(1, 100)
+
+  while guess != number:
+    guess = int(input("Guess the number: "))
+    if guess > number:
+      print("\nnumber is smaller than guessed number")
+    if guess < number:
+      print("\nnumber is bigger than guessed number")
+
+    if lists.__contains__(guess):
+      print("Enter new number")
+    else:
+      lists.append(guess)
+      guess_num += 1
+
+  print("\nnumber of guess taken: ", guess_num)
+
+
+def Problem_10(year):
+  print("10.)")
+  flag = 0
+  count = 0
+  while count < 20:
+    if flag == 0 and (year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)):
+      flag = 1
+      print("Leap year")
+    elif flag == 1:
+      print(year)
+      count += 1
+      year += 4
+    elif flag == 0:
+      year += 1
+
+print("----Problem 1----")
+Problem_1()
+
+print()
+print("----Problem 2 and 3----")
+name = str(input("What is your name?: "))
+Problem_2(name)
+Problem_3(name)
+
+print()
+print("----Problem 4 and 5----")
+num1 = int(input("Enter a number: "))
+Problem_4(num1)
+Problem_5(num1)
+
+print()
+print("----Problem 6----")
+num2 = int(input("Enter a number: "))
+choice = str(input("Sum or Product (s for sum, p for product): "))
+Problem_6(num2, choice)
+
+print()
+print("----Problem 7----")
+num3 = int(input("Enter a number: "))
+Problem_7(num3)
+
+print()
+print("----Problem 8----")
+upto = int(input("Which number do you want prime numbers up to?: "))
+Problem_8(upto)
+
+print()
+print("----Problem 9----")
+Problem_9()
+
+print()
+print("----Problem 10----")
+year = int(input("Which year would you like to calculate the next 20 leap years of?: "))
+Problem_10(year)
+  
